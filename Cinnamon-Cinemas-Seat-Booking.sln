@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CinnamonCinemasSeatBooking", "CinnamonCinemasSeatBooking\CinnamonCinemasSeatBooking.csproj", "{BDE354A1-4808-4F6C-815E-E4DAF4B920BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CinnamonCinemasSeatBooking.Tests", "CinnamonCinemasSeatBooking.Tests\CinnamonCinemasSeatBooking.Tests.csproj", "{8A56414A-D5FF-439C-99DD-76BC7B321BE9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BDE354A1-4808-4F6C-815E-E4DAF4B920BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDE354A1-4808-4F6C-815E-E4DAF4B920BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDE354A1-4808-4F6C-815E-E4DAF4B920BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDE354A1-4808-4F6C-815E-E4DAF4B920BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A56414A-D5FF-439C-99DD-76BC7B321BE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A56414A-D5FF-439C-99DD-76BC7B321BE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A56414A-D5FF-439C-99DD-76BC7B321BE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A56414A-D5FF-439C-99DD-76BC7B321BE9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
