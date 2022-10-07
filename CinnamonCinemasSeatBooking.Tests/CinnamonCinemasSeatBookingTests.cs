@@ -1,5 +1,6 @@
 using System.Collections;
 using CinnamonCinemasSeatBooking.Models;
+using CinnamonCinemasSeatBooking.SeatBookingManager;
 using FluentAssertions;
 
 namespace CinnamonCinemasSeatBooking.Tests;
@@ -40,9 +41,6 @@ public class CinnamonCinemasSeatBookingTests
             else
                 BookingManager.AvailableSeatsInfo[Key].Should().Be("C1/C2/C3/C4/C5");
         }
-        /*Console.WriteLine(" Available Seats are: ");
-        foreach (string Key in BookingManager.AvailableSeatsInfo.Keys)
-            Console.WriteLine(String.Format("{0} : {1}", Key, BookingManager.AvailableSeatsInfo[Key]));*/
     }
 
     [Test]
@@ -51,7 +49,7 @@ public class CinnamonCinemasSeatBookingTests
         Random randomNumber = new Random();
         int randNumber;
         bool isSeatsAvailable = true;
-        while(isSeatsAvailable)
+        while (isSeatsAvailable)
         {
             randNumber = randomNumber.Next(1, 4);
             isSeatsAvailable = _BookingManager.BookTickets(randNumber);

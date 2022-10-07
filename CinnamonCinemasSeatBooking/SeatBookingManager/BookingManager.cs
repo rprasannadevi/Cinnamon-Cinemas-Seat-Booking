@@ -4,21 +4,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CinnamonCinemasSeatBooking.Models;
 
-namespace CinnamonCinemasSeatBooking.Models
+namespace CinnamonCinemasSeatBooking.SeatBookingManager
 {
     public class BookingManager
     {
         private readonly IMovieTheatre _MovieTheatre;
         private char maxRowName { get; set; }
+        public Seat? Seat { get; set; }
 
         public BookingManager(IMovieTheatre MovieTheatre)
         {
             _MovieTheatre = MovieTheatre;
             maxRowName = Convert.ToChar(65 + _MovieTheatre.NoOfRows);
         }
-        public Seat? Seat { get; set; }
-
+        
         List<Seat> SeatsList = new List<Seat>();
         public static Hashtable AvailableSeatsInfo = new Hashtable();
 
@@ -60,7 +61,7 @@ namespace CinnamonCinemasSeatBooking.Models
                     AvailableSeatsInfo.Add(s.Key.ToString(), seatsInfo);
             }
         }
-
+        
         public bool BookTickets(int NoOfTickets)
         {
             Console.WriteLine($"NoOfTickets:  {NoOfTickets}");
@@ -72,7 +73,7 @@ namespace CinnamonCinemasSeatBooking.Models
                     if (AvailableSeatsInfo.ContainsKey(c.ToString()))
                     {
                         SeatNames = AvailableSeatsInfo[c.ToString()]!.ToString();
-                        String[] SeatList = SeatNames!.Split("/");
+                        string[] SeatList = SeatNames!.Split("/");
                         if (SeatList.Count() > NoOfTickets)
                         {
                             for (int i = 0; i < NoOfTickets; i++)
@@ -105,12 +106,43 @@ namespace CinnamonCinemasSeatBooking.Models
                 }
                 else
                 {
-                    Console.WriteLine("Theatre is full. No Seats Available. Cannot book Tickets.");
+                    Console.WriteLine("Theatre is full. No Seats Available. Cannot book Tickets Further.");
                     return false;
                 }
             }
             return true;
         }
+        public bool BookTicketsUsingOnlyLinq(int NoOfTickets)
+        {
+            Console.WriteLine($"NoOfTickets:  {NoOfTickets}");
+            var bookedTickets = 0;
+            var getAvailableSeats = SeatsList
+                                    .Where(seat => seat.IsAvailable == true)
+                                    .OrderBy(seat => seat.RowName)
+                                    .GroupBy(seat => seat.RowName);
+            if (getAvailableSeats.Count() != 0)
+            {
+                foreach (var s in getAvailableSeats)
+                {
+                    foreach (var seat in s)
+                    {
+                        seat.IsAvailable = false;
+                        Console.WriteLine($"Allocated SeatNumber:  {seat.SeatNumber}");
+                        bookedTickets += 1;
+                        if (bookedTickets == NoOfTickets)
+                            return true;
+                        else
+                            continue;
+                    }
+                }
+            }
+            else
+                return false;
 
+            if (bookedTickets < NoOfTickets || getAvailableSeats.Count() == NoOfTickets)
+                return false;
+
+            return true;
+        }
     }
 }

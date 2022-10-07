@@ -16,11 +16,11 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="CinnamonCinemasSeatBooking.Models.BookingManager">
-    <Position X="2.25" Y="2.75" Width="2.5" />
+  <Class Name="CinnamonCinemasSeatBooking.SeatBookingManager.BookingManager">
+    <Position X="2.25" Y="2.75" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAACAAAgCAAQAAAAAAAAAAACAAAAgCAIAA=</HashCode>
-      <FileName>Models\BookingManager.cs</FileName>
+      <HashCode>AAAAAAAAAAAACAAAgCAAYAAAAAAAAAAACAAAAgCAIAA=</HashCode>
+      <FileName>SeatBookingManager\BookingManager.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Interface Name="CinnamonCinemasSeatBooking.Models.IMovieTheatre">
