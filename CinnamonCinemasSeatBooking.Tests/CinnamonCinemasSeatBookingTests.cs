@@ -31,9 +31,18 @@ public class CinnamonCinemasSeatBookingTests
     public void Print_The_Available_Seats()
     {
         _BookingManager.AvailableSeatsInformation();
-        Console.WriteLine(" Avaiable Seats are: ");
         foreach (string Key in BookingManager.AvailableSeatsInfo.Keys)
-            Console.WriteLine(String.Format("{0} : {1}", Key, BookingManager.AvailableSeatsInfo[Key]));
+        {
+            if (Key == "A")
+                BookingManager.AvailableSeatsInfo[Key].Should().Be("A1/A2/A3/A4/A5");
+            else if (Key == "B")
+                BookingManager.AvailableSeatsInfo[Key].Should().Be("B1/B2/B3/B4/B5");
+            else
+                BookingManager.AvailableSeatsInfo[Key].Should().Be("C1/C2/C3/C4/C5");
+        }
+        /*Console.WriteLine(" Available Seats are: ");
+        foreach (string Key in BookingManager.AvailableSeatsInfo.Keys)
+            Console.WriteLine(String.Format("{0} : {1}", Key, BookingManager.AvailableSeatsInfo[Key]));*/
     }
 
     [Test]
@@ -46,13 +55,8 @@ public class CinnamonCinemasSeatBookingTests
         {
             randNumber = randomNumber.Next(1, 4);
             isSeatsAvailable = _BookingManager.BookTickets(randNumber);
-            //var ex = Assert.Throws<Exception>(() => _BookingManager.BookTickets(randNumber));
-            //Assert.That(ex.Message, Is.EqualTo("Theatre is full. No Seats Available. Cannot book Tickets."));
             if (isSeatsAvailable == false)
-               break;
+                break;
         }
-        _BookingManager.AvailableSeatsInformation();
-        foreach (string Key in BookingManager.AvailableSeatsInfo.Keys)
-            Console.WriteLine(String.Format("{0} : {1}", Key, BookingManager.AvailableSeatsInfo[Key]));
     }
 }

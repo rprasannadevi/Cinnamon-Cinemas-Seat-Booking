@@ -49,10 +49,8 @@ namespace CinnamonCinemasSeatBooking.Models
             foreach (var s in getAvailableSeats)
             {
                 seatsInfo = "";
-                //Console.WriteLine($"Row Name: {s.Key}");
                 foreach (var seat in s)
                 {
-                    //Console.WriteLine($"\t Hello, my name is {seat.SeatNumber}");
                     seatsInfo += seat.SeatNumber + "/";
                 }
                 seatsInfo = seatsInfo.Substring(0, seatsInfo.Length - 1);
@@ -108,7 +106,6 @@ namespace CinnamonCinemasSeatBooking.Models
                 else
                 {
                     Console.WriteLine("Theatre is full. No Seats Available. Cannot book Tickets.");
-                    //throw new Exception("Theatre is full. No Seats Available. Cannot book Tickets.");
                     return false;
                 }
             }
