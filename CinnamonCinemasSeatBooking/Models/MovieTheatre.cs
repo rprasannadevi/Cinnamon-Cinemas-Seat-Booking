@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,19 +9,14 @@ namespace CinnamonCinemasSeatBooking.Models
 {
     public class MovieTheatre : IMovieTheatre
     {
-        public int NoOfRows { get;  set; }
-        public int NoOfSeatsInARow { get;  set; }
+        public int NoOfRows { get;  private set; }
+        public int NoOfSeatsInARow { get;  private set; }
+        public int TotalCapacity { get; private set; }
 
-        public int TotalCapacity { get; set; }
-
-        public void SetCapacity(int NoOfRows, int NoOfSeatsInaRow)
+        public MovieTheatre(int NoOfRows, int NoOfSeatsInARow)
         {
-            TotalCapacity = NoOfRows * NoOfSeatsInaRow;
+            TotalCapacity = NoOfRows * NoOfSeatsInARow;
         }
 
-        public void AvailableSeatsInfo()
-        {
-
-        }
     }
 }

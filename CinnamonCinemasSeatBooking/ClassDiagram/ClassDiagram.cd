@@ -1,39 +1,39 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="CinnamonCinemasSeatBooking.Models.MovieTheatre">
-    <Position X="2.5" Y="0.5" Width="1.5" />
+    <Position X="2.5" Y="0.5" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>QAAAAAAAAAAAgAgAAAAAAAAAAAAAAAAAAAAAAgAAIAA=</HashCode>
+      <HashCode>QAAAAAAAAAAAgAgAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\MovieTheatre.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="CinnamonCinemasSeatBooking.Models.Seat">
-    <Position X="6" Y="1" Width="1.5" />
+    <Position X="7" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAgAAAAAAgAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAIAgAAA=</HashCode>
       <FileName>Models\Seat.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="CinnamonCinemasSeatBooking.Models.BookingManager">
-    <Position X="2.5" Y="3.25" Width="1.5" />
+    <Position X="2.5" Y="3.25" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAQAAABAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAACAAAgAAAQAAAAAAAAAAAAAAAAgCAIAA=</HashCode>
       <FileName>Models\BookingManager.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Interface Name="CinnamonCinemasSeatBooking.Models.IMovieTheatre">
-    <Position X="0.5" Y="0.5" Width="1.5" />
+    <Position X="0.5" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>QAAAAAAAAAAAgAgAAAAAAAAAAAAAAAAAAAAAAgAAIAA=</HashCode>
+      <HashCode>QAAAAAAAAAAAgAgAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\IMovieTheatre.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="CinnamonCinemasSeatBooking.Models.ISeat">
-    <Position X="4.25" Y="0.5" Width="1.5" />
+    <Position X="4.75" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAgAAAAAAgAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAIAgAAA=</HashCode>
       <FileName>Models\ISeat.cs</FileName>
     </TypeIdentifier>
   </Interface>

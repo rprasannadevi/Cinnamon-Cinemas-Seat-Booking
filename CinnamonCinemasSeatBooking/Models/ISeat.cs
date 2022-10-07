@@ -8,9 +8,8 @@ namespace CinnamonCinemasSeatBooking.Models
 {
     public interface ISeat
     {
-        bool isAvailable { get; }
+        bool IsAvailable { get; }
         char RowName { get; }
         string SeatNumber { get; }
-
     }
 }
