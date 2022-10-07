@@ -13,10 +13,12 @@ namespace CinnamonCinemasSeatBooking.Models
         public int NoOfSeatsInARow { get;  private set; }
         public int TotalCapacity { get; private set; }
 
-        public MovieTheatre(int NoOfRows, int NoOfSeatsInARow)
+        public MovieTheatre(int iNoOfRows, int iNoOfSeatsInARow)
         {
+            NoOfRows = iNoOfRows;
+            NoOfSeatsInARow = iNoOfSeatsInARow;
             TotalCapacity = NoOfRows * NoOfSeatsInARow;
         }
 
-    }
+    }  
 }

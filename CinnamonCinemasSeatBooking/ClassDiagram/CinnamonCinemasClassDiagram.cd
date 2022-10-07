@@ -17,9 +17,9 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="CinnamonCinemasSeatBooking.Models.BookingManager">
-    <Position X="2.5" Y="3.25" Width="2.5" />
+    <Position X="2.25" Y="2.75" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAACAAAgAAAQAAAAAAAAAAAAAAAAgCAIAA=</HashCode>
+      <HashCode>AAAAAAAAAAAACAAAgCAAQAAAAAAAAAAACAAAAgCAIAA=</HashCode>
       <FileName>Models\BookingManager.cs</FileName>
     </TypeIdentifier>
   </Class>

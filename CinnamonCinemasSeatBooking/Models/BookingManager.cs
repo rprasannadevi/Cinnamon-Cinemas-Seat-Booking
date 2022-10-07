@@ -9,14 +9,23 @@ namespace CinnamonCinemasSeatBooking.Models
 {
     public class BookingManager
     {
+        private readonly IMovieTheatre _MovieTheatre;
+        private char maxRowName { get; set; }
+
+        public BookingManager(IMovieTheatre MovieTheatre)
+        {
+            _MovieTheatre = MovieTheatre;
+            maxRowName = Convert.ToChar(65 + _MovieTheatre.NoOfRows);
+        }
         public Seat? Seat { get; set; }
 
         List<Seat> SeatsList = new List<Seat>();
         public static Hashtable AvailableSeatsInfo = new Hashtable();
 
-        public void SetCapacity(int NoOfRows, int NoOfSeatsInaRow)
+        public void SetCapacity()
         {
-            char maxRowName = Convert.ToChar(65 + NoOfRows);
+            var NoOfRows = _MovieTheatre.NoOfRows;
+            var NoOfSeatsInaRow = _MovieTheatre.NoOfSeatsInARow;
             string SeatNumber = "";
 
             for (var c = 'A'; c < maxRowName; c++)
@@ -28,16 +37,6 @@ namespace CinnamonCinemasSeatBooking.Models
                 }
             }
         }
-
-
-
-        /*public bool BookSeats(int NoOfSeats, Hashtable AvailableSeats)
-        {
-            Console.WriteLine(" Inside Book Seats: HASHTABLE OUTPUT");
-            foreach (string Key in AvailableSeats.Keys)
-                Console.WriteLine(String.Format("{0} : {1}", Key, AvailableSeats[Key]));
-            return true;
-        }*/
 
         public void AvailableSeatsInformation()
         {
@@ -57,7 +56,6 @@ namespace CinnamonCinemasSeatBooking.Models
                     seatsInfo += seat.SeatNumber + "/";
                 }
                 seatsInfo = seatsInfo.Substring(0, seatsInfo.Length - 1);
-                //Console.WriteLine($"SeatInfo  {seatsInfo}");
                 if (AvailableSeatsInfo.ContainsKey(s.Key.ToString()))
                     AvailableSeatsInfo[s.Key.ToString()] = seatsInfo;
                 else
@@ -69,7 +67,7 @@ namespace CinnamonCinemasSeatBooking.Models
         {
             Console.WriteLine($"NoOfTickets:  {NoOfTickets}");
             string? SeatNames = "";
-            for (var c = 'A'; c <= 'C'; c++)
+            for (var c = 'A'; c <= maxRowName; c++)
             {
                 if (AvailableSeatsInfo.Count > 0)
                 {
@@ -77,7 +75,6 @@ namespace CinnamonCinemasSeatBooking.Models
                     {
                         SeatNames = AvailableSeatsInfo[c.ToString()]!.ToString();
                         String[] SeatList = SeatNames!.Split("/");
-                        //Console.WriteLine($"SeatList.Count():  {SeatList.Count()}");
                         if (SeatList.Count() > NoOfTickets)
                         {
                             for (int i = 0; i < NoOfTickets; i++)
@@ -106,16 +103,12 @@ namespace CinnamonCinemasSeatBooking.Models
                             NoOfTickets -= SeatList.Count();
                             continue;
                         }
-                        /*else
-                        {
-                            Console.WriteLine("No Seats Available");
-                            return false;
-                        }*/
                     }
                 }
                 else
                 {
                     Console.WriteLine("Theatre is full. No Seats Available. Cannot book Tickets.");
+                    //throw new Exception("Theatre is full. No Seats Available. Cannot book Tickets.");
                     return false;
                 }
             }

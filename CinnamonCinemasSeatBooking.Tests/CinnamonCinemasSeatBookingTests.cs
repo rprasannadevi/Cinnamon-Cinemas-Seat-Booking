@@ -16,8 +16,8 @@ public class CinnamonCinemasSeatBookingTests
         var noOfrows = 3;
         var noOfSeatsInARow = 5;
         _MovieTheatre = new MovieTheatre(noOfrows, noOfSeatsInARow);
-        _BookingManager = new BookingManager();
-        _BookingManager.SetCapacity(noOfrows, noOfSeatsInARow);
+        _BookingManager = new BookingManager(_MovieTheatre);
+        _BookingManager.SetCapacity();
         _BookingManager.AvailableSeatsInformation();
     }
 
@@ -46,8 +46,10 @@ public class CinnamonCinemasSeatBookingTests
         {
             randNumber = randomNumber.Next(1, 4);
             isSeatsAvailable = _BookingManager.BookTickets(randNumber);
+            //var ex = Assert.Throws<Exception>(() => _BookingManager.BookTickets(randNumber));
+            //Assert.That(ex.Message, Is.EqualTo("Theatre is full. No Seats Available. Cannot book Tickets."));
             if (isSeatsAvailable == false)
-                break;
+               break;
         }
         _BookingManager.AvailableSeatsInformation();
         foreach (string Key in BookingManager.AvailableSeatsInfo.Keys)
